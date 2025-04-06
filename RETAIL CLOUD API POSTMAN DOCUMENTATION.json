@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "daa7c8e4-5333-4702-8292-4172c3dfb93c",
+		"name": "RETAIL CLOUD API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39914664"
+	},
+	"item": [
+		{
+			"name": "ADD EMPLOYEES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"rajani\",\r\n    \"employeeId\":\"127\",\r\n    \"dateOfBirth\":\"1995-02-11\",\r\n    \"department\": \"HR Department\",\r\n    \"salary\":\"200000\",\r\n    \"address\": \"chennai\",\r\n    \"role\": \"HR\",\r\n    \"joinDate\": \"2023-05-24\",\r\n    \"bonus\": 36,\r\n    \"reportingManager\": \"Indhu\",\r\n    \"deptCode\": \"HR\",\r\n    \"active\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/addEmployees"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE EMPLOYEES",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"midhun\",\r\n    \"employeeId\":\"101\",\r\n    \"dateOfBirth\":\"1995-02-11\",\r\n    \"department\": \"HR Department\",\r\n    \"salary\":\"200000\",\r\n    \"address\": \"chennai\",\r\n    \"role\": \"HR\",\r\n    \"joinDate\": \"2023-05-24\",\r\n    \"bonus\": 36,\r\n    \"reportingManager\": \"Indhu\",\r\n    \"deptCode\": \"HR\",\r\n    \"active\": true\r\n}\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/updateEmployees/101"
+			},
+			"response": []
+		},
+		{
+			"name": "ADD DEPARTMENTS",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"HR Department\",\r\n    \"code\":\"HR\",\r\n    \"departmentHead\":\"Vijay\",\r\n    \"createdDate\": \"1990-05-15\"\r\n    \r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/addDepartments"
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE DEPARTMENT",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/deleteDepartments/CT"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE DEPARTMENT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Finance\",\r\n    \"code\":\"FI\",\r\n    \"departmentHead\":\"Alan\",\r\n    \"createdDate\": \"1990-05-16\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/updateDepartments/IT"
+			},
+			"response": []
+		},
+		{
+			"name": "UPDATE EMPLOYEE DEPARTMENT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/updateEmployeeDepartment/102?deptCode=FI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"updateEmployeeDepartment",
+						"102"
+					],
+					"query": [
+						{
+							"key": "deptCode",
+							"value": "FI"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FETCH ALL EMPLOYEES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getAllEmployees?page=1&size=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllEmployees"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FETCH ALL DEPATMENTS",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getAllDepartments?page=0&size=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getAllDepartments"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FETCH DEPARTMENT WITH EMPLOYEES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getDepartmentWithEmployeeDetails/HR?expand=employee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getDepartmentWithEmployeeDetails",
+						"HR"
+					],
+					"query": [
+						{
+							"key": "expand",
+							"value": "employee"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FETCH EMPLOYEES NAME AND ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/getEmployeeNamesAndId?lookup=true&page=1&size=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"getEmployeeNamesAndId"
+					],
+					"query": [
+						{
+							"key": "lookup",
+							"value": "true"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
